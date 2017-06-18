@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+     
+    <sql-query name="PRC_NewHiresNonFullTime_ReferenceData_WorkYear">
+        <![CDATA[call PRC_NewHiresNonFullTime_ReferenceData_WorkYear()]]>
+    </sql-query>
+    
+    <sql-query name="PRC_NewHiresNonFullTime_ReferenceData_WorkMonth">
+        <![CDATA[call PRC_NewHiresNonFullTime_ReferenceData_WorkMonth()]]>
+    </sql-query>
+    
+    <sql-query name="PRC_NewHiresNonFullTime_ReferenceData_ControlGroup">
+        <![CDATA[call PRC_NewHiresNonFullTime_ReferenceData_ControlGroup()]]>
+    </sql-query>
+    
+    <sql-query name="PRC_NewHiresNonFullTime_ReferenceData_UnionType">
+        <![CDATA[call PRC_NewHiresNonFullTime_ReferenceData_UnionType()]]>
+    </sql-query>
+    
+    <sql-query name="PRC_NewHiresNonFullTime_ReferenceData_EmployeeType">
+        <![CDATA[call PRC_NewHiresNonFullTime_ReferenceData_EmployeeType()]]>
+    </sql-query>
+    
+    <sql-query name="PRC_NewHiresNonFullTime_ReportCountByWeek">
+        <![CDATA[call PRC_NewHiresNonFullTime_ReportCountByWeek(:workYear,:workMonth,:controlGroup,:unionType,:employeeType)]]>
+    </sql-query>
+    
+    <sql-query name="PRC_NewHiresNonFullTime_ReportByWeeksCount">
+        <![CDATA[call PRC_NewHiresNonFullTime_ReportByWeeksCount(:workYear,:workMonth,:controlGroup,:unionType,:employeeType,:reportOfWeek)]]>
+    </sql-query>
+    
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+DELIMITER $$
+
+CREATE
+    /*[DEFINER = { user | CURRENT_USER }]*/
+    PROCEDURE getENFTCount(IN workYear VARCHAR(4),
+			       IN workMonth VARCHAR(10),
+			       IN controlGroup VARCHAR(100),
+			       IN unionType VARCHAR(10),
+			       IN employeeType VARCHAR(20),
+			       IN avgWeeklyThreshold VARCHAR(10)
+			      )
+    
+    BEGIN
+	
+		SELECT COUNT(SUMMARY_13_WEEKS) AS SUMMARY_13_WEEKS,
+			COUNT(SUMMARY_26_WEEKS) AS SUMMARY_26_WEEKS,
+				COUNT(SUMMARY_47_WEEKS) AS SUMMARY_47_WEEKS,
+				COUNT(SUMMARY_52_WEEKS) AS SUMMARY_52_WEEKS
+		FROM NFT_REPORT
+		WHERE (1=1) AND (workYear IS NULL OR WORK_YEAR=workYear)
+		AND (workMonth IS NULL OR WORK_MONTH=workMonth);
+		/*AND (controlGroup IS NULL OR CONTROL_GROUP=controlGroup);
+		/*and (UNION_TYPE is null OR UNION_TYPE=unionType)
+		and (EMPOYEE_TYPE is null or EMPOYEE_TYPE IN (employeeType))
+		and AVEAGRE_WEEKLY_THRESHOLD=avgWeeklyThreshold;*/
+	
+
+    END$$
+
+DELIMITER ;
